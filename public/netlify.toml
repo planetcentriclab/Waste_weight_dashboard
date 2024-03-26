@@ -3,5 +3,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/waste-weight/index.html"
   status = 200
