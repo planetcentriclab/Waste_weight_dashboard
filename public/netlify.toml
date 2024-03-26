@@ -1,5 +1,5 @@
 [build]
-base = "/waste-weight"
+    base = "/waste-weight"
 
 [[redirects]]
   from = "/*"
