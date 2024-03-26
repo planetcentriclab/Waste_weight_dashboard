@@ -7,7 +7,7 @@ function App() {
     <div className='container'>
       <Router>
           <Routes>
-            <Route path='/'element= {<HomePage/>} />
+            <Route path='/waste-weight'element= {<HomePage/>} />
           </Routes>
       </Router>
     </div>
