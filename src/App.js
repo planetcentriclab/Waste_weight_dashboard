@@ -7,8 +7,7 @@ function App() {
     <div className='container'>
       <Router>
           <Routes>
-            <Route path='/waste-weight' components={App} />
-            <Route path='/waste-weight/'element= {<HomePage/>} />
+            <Route path='/waste-weight'element= {<HomePage/>} />
           </Routes>
       </Router>
     </div>
