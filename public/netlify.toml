@@ -1,7 +1,0 @@
-[build]
-  base = "/waste-weight"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
