@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Waste_weight_dashboard/static/css/main.c6997096.css",
-    "main.js": "/Waste_weight_dashboard/static/js/main.9568e8be.js",
-    "static/media/machine.png": "/Waste_weight_dashboard/static/media/machine.54341362e5507ee8da3b.png",
-    "index.html": "/Waste_weight_dashboard/index.html",
-    "main.c6997096.css.map": "/Waste_weight_dashboard/static/css/main.c6997096.css.map",
-    "main.9568e8be.js.map": "/Waste_weight_dashboard/static/js/main.9568e8be.js.map"
+    "main.css": "/%3Chttps://planetcentriclab.github.io/Waste_weight_dashboard%3E/static/css/main.c6997096.css",
+    "main.js": "/%3Chttps://planetcentriclab.github.io/Waste_weight_dashboard%3E/static/js/main.7b8f2277.js",
+    "static/media/machine.png": "/%3Chttps://planetcentriclab.github.io/Waste_weight_dashboard%3E/static/media/machine.54341362e5507ee8da3b.png",
+    "index.html": "/%3Chttps://planetcentriclab.github.io/Waste_weight_dashboard%3E/index.html",
+    "main.c6997096.css.map": "/%3Chttps://planetcentriclab.github.io/Waste_weight_dashboard%3E/static/css/main.c6997096.css.map",
+    "main.7b8f2277.js.map": "/%3Chttps://planetcentriclab.github.io/Waste_weight_dashboard%3E/static/js/main.7b8f2277.js.map"
   },
   "entrypoints": [
     "static/css/main.c6997096.css",
-    "static/js/main.9568e8be.js"
+    "static/js/main.7b8f2277.js"
   ]
 }
