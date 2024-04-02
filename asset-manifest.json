@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Waste_weight_dashboard/static/css/main.c6997096.css",
-    "main.js": "/Waste_weight_dashboard/static/js/main.f5b96697.js",
+    "main.js": "/Waste_weight_dashboard/static/js/main.ed1b80a1.js",
     "static/media/machine.png": "/Waste_weight_dashboard/static/media/machine.54341362e5507ee8da3b.png",
     "index.html": "/Waste_weight_dashboard/index.html",
     "main.c6997096.css.map": "/Waste_weight_dashboard/static/css/main.c6997096.css.map",
-    "main.f5b96697.js.map": "/Waste_weight_dashboard/static/js/main.f5b96697.js.map"
+    "main.ed1b80a1.js.map": "/Waste_weight_dashboard/static/js/main.ed1b80a1.js.map"
   },
   "entrypoints": [
     "static/css/main.c6997096.css",
-    "static/js/main.f5b96697.js"
+    "static/js/main.ed1b80a1.js"
   ]
 }
