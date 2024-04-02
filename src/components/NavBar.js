@@ -27,7 +27,7 @@ const NavBar = ({children}) => {
             <h1 className={classes.title2}>Recording System</h1>
               {
                   menuItem.map((item, index) => (
-                      <NavLink basename={`${process.env.PUBLIC_URL}`} to={item.path} key={index} className={`${classes.link} ${item.path === currentLocation.pathname ? classes.activeLink : ''}`}>
+                      <NavLink to={item.path} key={index} className={`${classes.link} ${item.path === currentLocation.pathname ? classes.activeLink : ''}`}>
                           <img src={item.icon} alt='icon' width='22px' height='22px'/>
                           <p className={classes.h2}>{item.name}</p>
                       </NavLink>
