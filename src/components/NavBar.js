@@ -7,12 +7,12 @@ import machine from './img/machine.png'
 const NavBar = ({children}) => {
   const menuItem = [
     {
-        path:"/waste-weight",
+        path:"/",
         name:"รายละเอียดข้อมูลขยะ",
         icon: data
     },
     {
-        path:"/waste-weight/machine-page",
+        path:"/machine-page",
         name:"เครื่องชั่งน้ำหนักขยะ",
         icon: machine
     }
