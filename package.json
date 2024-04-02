@@ -1,5 +1,6 @@
 {
-  "name": "Dashboard",
+  "homepage": "<https://planetcentriclab.github.io/Waste_weight_dashboard>",
+  "name": "waste-weight-dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -49,6 +50,5 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  },
-  "homepage": "https://planetcentriclab.github.io/Waste_weight_dashboard/"
+  }
 }
