@@ -1,0 +1,79 @@
+.container{
+    display: flex;
+}
+
+.sidebar {
+    background-color: #ffffff;
+    padding: 0;
+    width: 270px;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.top {
+    margin: 30px 20px 40px 160px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.link {
+    display: flex;
+    color: #577958;
+    height: 25px;
+    padding: 15px 20px 15px 30px;
+    gap: 15px;
+    transition: all 0.5s;
+}
+
+.link:hover{
+    transition: all 0.8s;
+    border-radius: 10px;
+    margin: 0px 15px 0px 15px;
+    padding: 15px 0px 15px 15px;
+}
+
+.link:hover p{
+    transition: all 0.5s;
+    color: #1a291b;
+}
+
+.activeLink {
+    background: #e6ece7;
+    border-radius: 10px;
+    margin: 0px 15px 0px 15px;
+    padding: 15px 0px 15px 15px;
+}
+
+.activeLink p{
+    color: #1a291b;
+}
+
+.icon {
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    position: center;
+}
+
+.p {
+    height: 22px;
+    color: #7E9587;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.title1 {
+    padding: 30px 0px 10px 35px;
+    color: #1A3D19;
+    font-size: 18px;
+    font-weight: Normal
+}
+
+.title2 {
+    padding: 0px 0px 30px 35px;
+    color: #1A3D19;
+    font-size: 18px;
+    font-weight: Normal
+}

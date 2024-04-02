@@ -1,0 +1,15 @@
+.container {
+    margin: 0;
+    padding: 0;
+    background-color: #e6ece7;
+    transition: 0.5s;
+    height: 100vh;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.title {
+    padding: 30px 60px 30px 60px;
+    color: #1A3D19;
+    font-size: 24px;
+    font-weight: bolder;
+}

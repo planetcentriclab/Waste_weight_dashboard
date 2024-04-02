@@ -1,9 +1,13 @@
-import React from 'react';
+import {NavLink} from 'react-router-dom'
+import classes from './css/HomePage.module.css'
+import SideNavBar from '../components/NavBar';
 
 function HomePage() {
   return (
-    <div>
-      <h1>Hello, world!</h1>
+    <div className={classes.container}>
+        <SideNavBar>
+          <p className={classes.title}>รายละเอียดข้อมูลขยะ</p>
+        </SideNavBar>
     </div>
   );
 }
