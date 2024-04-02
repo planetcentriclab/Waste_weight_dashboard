@@ -8,8 +8,8 @@ function App() {
     <div className='container'>
       <Router>
         <Routes>
-            <Route path='/waste-weight'element= {<HomePage/>} />
-            <Route path='/waste-weight/machine-page'element= {<MachinePage/>} />
+            <Route path='/'element= {<HomePage/>} />
+            <Route path='/machine-page'element= {<MachinePage/>} />
           </Routes>
       </Router>
     </div>
