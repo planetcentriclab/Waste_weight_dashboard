@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/waste-weight/static/css/main.c6997096.css",
-    "main.js": "/waste-weight/static/js/main.73ba701c.js",
-    "static/media/machine.png": "/waste-weight/static/media/machine.54341362e5507ee8da3b.png",
-    "index.html": "/waste-weight/index.html",
-    "main.c6997096.css.map": "/waste-weight/static/css/main.c6997096.css.map",
-    "main.73ba701c.js.map": "/waste-weight/static/js/main.73ba701c.js.map"
+    "main.css": "/Waste-weight-dashboard/waste-weight/static/css/main.c6997096.css",
+    "main.js": "/Waste-weight-dashboard/waste-weight/static/js/main.ace55668.js",
+    "static/media/machine.png": "/Waste-weight-dashboard/waste-weight/static/media/machine.54341362e5507ee8da3b.png",
+    "index.html": "/Waste-weight-dashboard/waste-weight/index.html",
+    "main.c6997096.css.map": "/Waste-weight-dashboard/waste-weight/static/css/main.c6997096.css.map",
+    "main.ace55668.js.map": "/Waste-weight-dashboard/waste-weight/static/js/main.ace55668.js.map"
   },
   "entrypoints": [
     "static/css/main.c6997096.css",
-    "static/js/main.73ba701c.js"
+    "static/js/main.ace55668.js"
   ]
 }
