@@ -8,8 +8,125 @@
 }
 
 .title {
-    padding: 30px 60px 30px 60px;
+    padding: 25px 60px 20px 60px;
     color: #1A3D19;
     font-size: 24px;
     font-weight: bolder;
+}
+
+.containerDropdown {
+    width: 100wh;
+    height: 40px;
+    display: flex;
+    padding: 0px 0px 20px 60px;
+    gap: 20px;
+}
+
+.dropdown {
+    background-color: white;
+    font-size: 15px;
+    color: #1A3D19;
+    cursor: pointer;
+}
+
+.containerDateRange {
+    display: flex;
+    height: 34px;
+    width: 240px;
+    position: relative;
+    background-color: white;
+    border: 1px solid #1A3D19;
+    border-radius: 5px;
+}
+
+.calendarSpan {
+    padding: 7.5px 5px 5px 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #7c7c7c;
+    cursor: pointer;
+}
+
+.dateRange {
+    position: absolute;
+    z-index: 1000; 
+    top: 50px;
+}
+
+.calendarIcon{
+    padding: 5.5px 5px 5px 12px;
+    cursor: pointer;
+}
+
+.containerTotalWaste {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.backgroundTotalWaste, .backgroundTotalCarbon {
+    width: calc((100vw - 300px)/2);
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 6px #0e270d31; 
+}
+
+.totalWasteText, .totalCarbonText {
+    color: #1A3D19;
+    font-weight: bolder;
+    padding: 0px 10px;
+}
+
+.totalWaste, .totalCarbon {
+    color: #456d43;
+    font-weight: bolder; 
+    font-size: 28px;
+    padding: 0px 10px;  
+    letter-spacing: 1px;
+}
+
+.containerBarGraph {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0px;
+    gap: 20px;
+}
+
+.backgroundBarGraphWaste, .backgroundBarGraphCarbon{
+    width: calc(100vw - 280px);
+    /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        20px : .containerDropdown -> padding bottom 20px
+        34px : .containerDateRange -> height 34px
+        60px : .containerBarGraph -> padding top 20px bottom 20px
+             : .containerBarGraph -> gap 20px
+        70px : .backgroundTotalWaste, .backgroundTotalCarbon -> height 70px
+    */
+    height: calc((100vh - (45px + 24px + 20px + 34px + 80px + 70px))/2);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px #0e270d31;
+}
+
+.barGraphWasteText, .barGraphCarbonText {
+    color: #1A3D19;
+    font-weight: bolder;
+    padding: 10px 0px 10px 30px;
+}
+
+.barGraphWaste {
+    position: relative;
+    height: calc(((100vh - (45px + 24px + 20px + 34px + 80px + 70px))/2) - 35px);
+    width: calc(100vw - 280px);
 }
