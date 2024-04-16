@@ -8,8 +8,382 @@
 }
 
 .title {
-    padding: 30px 60px 30px 60px;
+    position: absolute;
+    padding: 25px 60px 20px 60px;
     color: #1A3D19;
     font-size: 24px;
+    font-weight: bolder;
+}
+
+.containerAddBtn {
+    position: absolute;
+    right: calc(((100vw - 270px) - (100vw - 270px - 80px))/2);
+    top: 40px;
+}
+
+.addBtn {
+    padding: 5px 15px;
+    color: #1A3D19;
+    font-weight: normal;
+    font-size: 13px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #4a6449;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px #0e270d31;
+}
+
+.addBtn:hover {
+    color: #ffffff;
+    background-color: #4a6449;
+}
+
+.containerTable {
+    padding: 82px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backgroundContainerTable {
+    position: relative;
+    /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        25px : .containerTable -> padding bottom 25px
+        40px : padding top 20px bottom 20px
+        10px : equal with thw homepage
+     */
+    height: calc(100vh - 45px - 24px - 25px - 40px - 10px);
+    width: calc(100vw - 270px - 40px);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 20px 20px;
+    box-shadow: 2px 2px 6px #0e270d31;
+}
+
+.containerOnlyTable {
+    background-color: #ffffff;
+    overflow-x: scroll;
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+     */
+    width: calc(100vw - 270px - 40px);
+    /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        25px : .containerTable -> padding bottom 25px
+        40px : padding top 20px bottom 20px
+        10px : equal with thw homepage
+        33px : .pagination -> margin top 20px
+               .paginationItem -> font-size 13
+    */
+    height: calc(100vh - 45px - 24px - 25px - 40px - 10px - 33px);
+}
+
+.table{
+    position: relative;
+    padding: 0px 0px 5px 0px;
+    border-spacing: 0px;
+}
+
+th {
+    color: #1A3D19;
+    font-size: 14px;
+    border-bottom: 1px solid #0b1f0a;
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+    border-spacing: 0px;
+    border-right: 1px solid rgb(192, 192, 192);
+    padding: 8px 8px;
+}
+
+.tableTH1 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 5 rows
+    */
+    min-width: calc((100vw - 270px - 40px - (16px *5))/15);
+    height: 20px;
+    white-space: normal; 
+}
+
+.tableTH2 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 5 rows
+     */
+    min-width: calc((100vw - 270px - 40px - (16px *5))/8);
+    height: 20px;
+    white-space: normal; 
+}
+
+.tableTH3 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 5 rows
+     */
+    min-width: calc((100vw - 270px - 40px - (16px *5))/6);
+    height: 20px;
+    white-space: normal; 
+}
+
+.tableTH4 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 5 rows
+     */
+    min-width: calc((100vw - 270px - 40px - (16px *5))/1.7);
+    max-width: calc((100vw - 270px - 40px - (16px *5))/1.7);
+    height: 20px;
+    white-space: normal; 
+}
+
+.tableTH5 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 5 rows
+     */
+    min-width: calc((100vw - 270px - 40px - (16px *5) - 6px) - ((100vw - 270px - 40px - (16px *5))*((1/15) + (1/8) + (1/6) + (1/1.7))));
+    height: 20px;
+    border-right: 1px solid rgb(255, 255, 255);
+}
+
+
+td {
+    color: #575757;
+    font-size: 12px;
+    font-weight: light;
+    text-align: center;
+    border-bottom: 1px solid rgb(192, 192, 192);
+    border-right: 1px solid rgb(192, 192, 192);
+    border-spacing: 0px;
+    padding: 8px 8px;
+}
+
+.tableTD1 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 11 rows
+     */
+    min-width: calc((100vw - 270px - 40px - (16px *5))/15);
+        /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        25px : .containerTable -> padding bottom 25px
+        40px : padding top 20px bottom 20px
+        10px : equal with thw homepage
+        33px : .pagination -> margin top 20px
+               .paginationItem -> font-size 13
+        16px : td -> padding left 8px right 8px * 10 rows
+        10px : scroll bar
+    */
+    min-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+    max-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+}
+
+.tableTD2 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 11 rows
+     */
+    min-width: calc((100vw - 270px - 40px - (16px *5))/8);
+        /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        25px : .containerTable -> padding bottom 25px
+        40px : padding top 20px bottom 20px
+        10px : equal with thw homepage
+        33px : .pagination -> margin top 20px
+               .paginationItem -> font-size 13
+        16px : td -> padding left 8px right 8px * 10 rows
+        10px : scroll bar
+    */
+    min-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+    max-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+}
+
+.tableTD3 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 11 rows
+     */
+    min-width: calc((100vw - 270px - 40px - (16px *5))/6);
+        /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        25px : .containerTable -> padding bottom 25px
+        40px : padding top 20px bottom 20px
+        10px : equal with thw homepage
+        33px : .pagination -> margin top 20px
+               .paginationItem -> font-size 13
+        16px : td -> padding left 8px right 8px * 10 rows
+        10px : scroll bar
+    */
+    min-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+    max-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+}
+
+.tableTD4 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 11 rows
+     */
+    min-width: calc((100vw - 270px - 40px - (16px *5))/1.7);
+    max-width: calc((100vw - 270px - 40px - (16px *5))/1.7);
+        /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        25px : .containerTable -> padding bottom 25px
+        40px : padding top 20px bottom 20px
+        10px : equal with thw homepage
+        33px : .pagination -> margin top 20px
+               .paginationItem -> font-size 13
+        16px : td -> padding left 8px right 8px * 10 rows
+        10px : scroll bar
+    */
+    min-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+    max-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+}
+
+.tableTD5 {
+    /*  270px: width of navbar
+        40px : .backgroundContainerTable -> padding left 20px right 20px
+        16px : td -> padding left 8px right 8px * 11 rows
+     */
+    min-width: calc((100vw - 2870px - 40px - (16px *5) - 6px) - ((100vw - 280px - 40px - (16px * 5))*((1/15) + (1/8) + (1/6) + (1/1.7))));
+    border-right: 1px solid rgb(255, 255, 255);
+        /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        25px : .containerTable -> padding bottom 25px
+        40px : padding top 20px bottom 20px
+        10px : equal with thw homepage
+        33px : .pagination -> margin top 20px
+               .paginationItem -> font-size 13
+        16px : td -> padding left 8px right 8px * 10 rows
+        10px : scroll bar
+    */
+    min-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+    max-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+}
+
+.tableTDIcon{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 12px;
+        /*  45px : .title -> padding top 25px bottom 20px
+        24px : .title -> padding font-size
+        25px : .containerTable -> padding bottom 25px
+        40px : padding top 20px bottom 20px
+        10px : equal with thw homepage
+        33px : .pagination -> margin top 20px
+               .paginationItem -> font-size 13
+        16px : td -> padding left 8px right 8px * 10 rows
+        10px : scroll bar
+    */
+    min-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+    max-height: calc((100vh - 45px - 24px - 25px - 40px - 10px - 33px - (16px * 10) - 10px)/10);
+}
+
+.deleteIconBtn {
+    height: 18px;
+    width: 17px;
+    color: #660b0bb6;
+    cursor: pointer;
+}
+
+.deleteIconBtn:hover {
+    color: #660b0b;
+}
+
+.pencilIconBtn {
+    height: 18px;
+    width: 17px;
+    color: #0c355cb6;
+    cursor: pointer;
+}
+
+.pencilIconBtn:hover {
+    color: #0c355c;
+}
+
+/* tbody tr:hover {
+    background-color: #e1ebe173;
+} */
+
+.pagination {
+    position: relative;
+    width: fit-content;
+    gap: 10px;
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    margin: 25px 0px 0px 0px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: normal;
+    background-color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.paginationItem {
+    list-style: none;
+    font-size: 13px;
+    font-weight: normal;
+    color: #1A3D19;
+    width: 30px;
+}
+
+.paginationPageLinkItem {
+    width: 60px;
+}
+
+.paginationListItem{
+    list-style: none;
+    font-size: 13px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: normal;
+    color: #4a6449;
+    border: 1px solid #4a6449;
+    border-radius: 2px;
+}
+
+.paginationPageLink {
+    list-style: none;
+    font-size: 13px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: normal;
+    color: #4a6449;
+    background-color: #4a64491f;
+    border: 1px solid #4a64491f;
+    border-radius: 2px;
+}
+
+.paginationPageLinkDisabled {
+    color: #a0a0a0;
+    background-color: white;
+}
+
+.paginationItem.active .paginationListItem {
+    font-weight: bolder;
+    color: white;
+    background-color: #4a6449;
+}
+
+.paginationListItem:hover {
+    color: white;
+    background-color: #4a6449;
+}
+
+.paginationPageLink:hover {
     font-weight: bolder;
 }
