@@ -29,7 +29,7 @@ const NavBar = ({children}) => {
                   menuItem.map((item, index) => (
                       <NavLink to={item.path} key={index} className={`${classes.link} ${item.path === currentLocation.pathname ? classes.activeLink : ''}`}>
                           <img src={item.icon} alt='icon' width='22px' height='22px'/>
-                          <p className={classes.h2}>{item.name}</p>
+                          <p className={classes.menu}>{item.name}</p>
                       </NavLink>
                   ))
               }
