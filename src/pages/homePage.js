@@ -172,10 +172,18 @@ function HomePage() {
   }
 
 
+  // ----------------------------------- DateRange handle -----------------------------------
   const handleClickDateRange = () => {setOpenDate((prev) => !prev)};
   const handleChangeDateRange = (ranges) => {
-    setDate(ranges.selection)
-    console.log(ranges.selection)
+    setDate(ranges.selection);
+    setStartDatePayload(`${format(ranges.selection.startDate, 'yyyy-MM-dd')}`);
+    setEndDatePayload(`${format(ranges.selection.endDate, 'yyyy-MM-dd')}`);
+    setRequestData({
+      profile_waste: profileDropdown,
+      faculty: facultyDropdown,
+      start_date: `${format(ranges.selection.startDate, 'yyyy-MM-dd')}`,
+      end_date: `${format(ranges.selection.endDate, 'yyyy-MM-dd')}`
+    });
   }
 
   const dateRangeRef = useRef(null);
@@ -194,6 +202,11 @@ function HomePage() {
 
   // Initial the startDate and endDate of the date range
   useEffect(() => {
+    if (oldDayRecord != null) {
+      const minDateArray = oldDayRecord.split('-').map(Number);
+      setMinDate(new Date(minDateArray[0], minDateArray[1]-1, minDateArray[2], 0, 0, 0));
+      setStartDatePayload(oldDayRecord)
+
     const initialStartDate = minDate; 
     const initialEndDate = new Date();  
 
@@ -202,7 +215,8 @@ function HomePage() {
       startDate: initialStartDate,
       endDate: initialEndDate
     });
-  }, []);
+    }
+  }, [oldDayRecord]);
 
 
   // ----------------------------------- TotalWaste constant -----------------------------------
