@@ -113,6 +113,17 @@ function HomePage() {
     fetchData();
   }, [])
   
+  // ----------------------------------- Dropdown constant -----------------------------------
+  const [profileDropdown, setProfileDropdown] = useState(null)
+  const [facultyDropdown, setFacultyDropdown] = useState(null)
+
+  // ----------------------------------- DateRange constant -----------------------------------
+  const [minDate, setMinDate] = useState(new Date(2000, 1, 1, 0, 0, 0))
+  const [date, setDate] = useState({ startDate: minDate, endDate: new Date(), key: 'selection'})
+  const [openDate, setOpenDate] = useState(false)
+
+  const [startDatePayload, setStartDatePayload] = useState(minDate)
+  const [endDatePayload, setEndDatePayload] = useState(`${format(new Date(), 'yyyy-MM-dd')}`)
   const handleRemoveDropdown = (e, type_multiselect) => {
     console.log(e);
   }
