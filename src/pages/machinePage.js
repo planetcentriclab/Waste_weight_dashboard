@@ -85,12 +85,23 @@ function MachinePage() {
   };
 
   const handleDelete = () => {
-    console.log(record[selectedRecordDeleteIndex])
-    // Create a copy of the current machineData array
-    const updatedMachineData = [...machineData];
-    updatedMachineData.splice(selectedRecordDeleteIndex + firstIndex, 1);
-    // Set new machineData when delete successful
-    setMachineData(updatedMachineData);
+    const deleteDataMachine = {
+      machine_name: record[selectedRecordDeleteIndex].machine_name
+    }
+    console.log('Deleting machine name: ', deleteDataMachine)
+    axios.delete('https://books-opening.gl.at.ply.gg:61345/api/v1/weightScale/machine/delete', { data: deleteDataMachine })
+    .then(response => {
+      console.log('Delete request successful: ', response.data);
+    })
+    .catch(error => {
+      console.error('Error making delete request: ', error);
+    });
+
+    // Create a copy of the current constantMachine array
+    const updatedConstantMachine = [...constantMachine];
+    updatedConstantMachine.splice(selectedRecordDeleteIndex + firstIndex, 1);
+    // Set new constantMachine when delete successful
+    setConstantMachine(updatedConstantMachine);
 
     closeModalDelete();
   };
