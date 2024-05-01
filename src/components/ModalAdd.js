@@ -15,14 +15,14 @@ function ModalAdd({ onClose, onAdd }) {
   const [formData, setFormData] = useState({
     create_date: getCurrentDate(),
     machine_name: '',
-    faculty_name: '',
+    faculty: '',
     profile: ''
   });
 
   const [isFormValid, setIsFormValid] = useState(true);
 
   const handleChange = (selectedList, name) => {
-    let extractedKeys = [];
+    let extractedKeys = {};
     if (name === "profile") {
         extractedKeys = selectedList.map(item => item.key);
         setFormData(prevState => ({
@@ -41,7 +41,7 @@ function ModalAdd({ onClose, onAdd }) {
 
   const handleSubmit = () => {
     // Validate data and add new machine
-    if (formData.create_date && formData.machine_name && formData.faculty_name && formData.profile.length) {
+    if (formData.create_date && formData.machine_name && formData.faculty && formData.profile.length) {
       onAdd(formData);
       onClose();
     } else {
@@ -100,13 +100,13 @@ function ModalAdd({ onClose, onAdd }) {
                 </div>
 
                 <div className={classes.formGroup}>
-                    <label htmlFor="faculty_name">ชื่อคณะที่ทำการติดตั้ง</label>
+                    <label htmlFor="faculty">ชื่อคณะที่ทำการติดตั้ง</label>
                     <input 
                         type="text" 
-                        id="faculty_name" 
-                        name="faculty_name" 
-                        value={formData.faculty_name}
-                        onChange={(e) => handleChange(e.target.value, "faculty_name")}
+                        id="faculty" 
+                        name="faculty" 
+                        value={formData.faculty}
+                        onChange={(e) => handleChange(e.target.value, "faculty")}
                     />
                 </div>
 
