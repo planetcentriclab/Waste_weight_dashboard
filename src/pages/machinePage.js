@@ -151,14 +151,31 @@ function MachinePage() {
   const handleUpdate = (updatedData) => {
     const newUpdatedData = {
       create_date: updatedData.create_date,
-      machine_name: updatedData.machine_name,
-      faculty_name: updatedData.faculty_name,
-      profile_waste: updatedData.profile.join(', ')
+      machine_name: updatedData.machine_name_new,
+      faculty: updatedData.faculty,
+      all_profile: updatedData.profile.join(', ')
     }
-    const updatedMachineData = [...machineData];
-    updatedMachineData[editIndex] = newUpdatedData;
-    // Set new machineData when delete successful
-    setMachineData(updatedMachineData);
+
+    const updatedNewMachineData = {
+      machine_name: updatedData.machine_name,
+      machine_name_new: updatedData.machine_name_new,
+      faculty: updatedData.faculty,
+      all_profile: updatedData.profile
+    }
+    
+    console.log('Editing machine data: ', updatedData)
+    axios.put('https://books-opening.gl.at.ply.gg:61345/api/v1/weightScale/machine/edit', updatedNewMachineData)
+    .then(response => {
+      console.log('Edit request successful:', response.data);
+    })
+    .catch(error => {
+      console.error('Error making edit request:', error);
+    });
+
+    const updatedConstantMachine = [...constantMachine];
+    updatedConstantMachine[editIndex] = newUpdatedData;
+    // Set new constantMachine when delete successful
+    setConstantMachine(updatedConstantMachine);
   };
  
    const openModalEdit = (index) => {
