@@ -220,48 +220,122 @@ function HomePage() {
 
 
   // ----------------------------------- TotalWaste constant -----------------------------------
-  const [totalWaste, setTotalWaste] = useState(10000)
-  const [totalCarbon, setTotalCarbon] = useState(10000)
+  const [dataProfileAmount, setDataProfileAmount] = useState(null)
+  const [constantDataProfileAmount, setConstantDataProfileAmount] = useState(null)
 
+  const [totalWaste, setTotalWaste] = useState('0.00')
+  const [totalCarbon, setTotalCarbon] = useState('0.00')
   const [totalWasteDetail, setTotalWasteDetail] = useState([
-                                                                { profile: 'กระป๋อง', amount: 100},
+                                                                { profile: 'กระป๋อง', amount: 0},
                                                                 { profile: 'แก้ว', amount: 0},
-                                                                { profile: 'กระดาษ', amount: 50},
-                                                                { profile: 'กล่องนม', amount: 1000},
-                                                                { profile: 'ขวดพลาสติก', amount: 30},
-                                                                { profile: 'หลอดพลาสติก', amount: 550},
-                                                                { profile: 'แก้วน้ำพลาสติก (ขายได้)', amount: 320},
-                                                                { profile: 'แก้วน้ำพลาสติก (ขายไม่ได้)', amount: 200},
-                                                                { profile: 'ช้อน - ส้อมพลาสติก', amount: 800},
-                                                                { profile: 'ถุงพลาสติก', amount: 1200},
-                                                                { profile: 'ถุงวิบวับ', amount: 200},
-                                                                { profile: 'กล่องอาหารพลาสติก', amount: 40},
-                                                                { profile: 'เศษอาหาร', amount: 2000},
-                                                                { profile: 'ขยะอันตราย', amount: 10},
-                                                                { profile: 'ขยะห้องน้ำ', amount: 780},
-                                                                { profile: 'ขยะกำพร้า', amount: 800},
-                                                                { profile: 'ขยะทั่วไป', amount: 1100},
+                                                                { profile: 'กระดาษ', amount: 0},
+                                                                { profile: 'กล่องนม', amount: 0},
+                                                                { profile: 'ขวดพลาสติก', amount: 0},
+                                                                { profile: 'หลอดพลาสติก', amount: 0},
+                                                                { profile: 'แก้วน้ำพลาสติก (ขายได้)', amount: 0},
+                                                                { profile: 'แก้วน้ำพลาสติก (ขายไม่ได้)', amount: 0},
+                                                                { profile: 'ช้อน - ส้อมพลาสติก', amount: 0},
+                                                                { profile: 'ถุงพลาสติก', amount: 0},
+                                                                { profile: 'ถุงวิบวับ', amount: 0},
+                                                                { profile: 'กล่องอาหารพลาสติก', amount: 0},
+                                                                { profile: 'เศษอาหาร', amount: 0},
+                                                                { profile: 'ขยะอันตราย', amount: 0},
+                                                                { profile: 'ขยะห้องน้ำ', amount: 0},
+                                                                { profile: 'ขยะกำพร้า', amount: 0},
+                                                                { profile: 'ขยะทั่วไป', amount: 0},
                                                               ])     
 
   const [totalCarbonDetail, setTotalCarbonDetail] = useState([
-                                                                { profile: 'กระป๋อง', amount: 100},
+                                                                { profile: 'กระป๋อง', amount: 0},
                                                                 { profile: 'แก้ว', amount: 0},
-                                                                { profile: 'กระดาษ', amount: 50},
-                                                                { profile: 'กล่องนม', amount: 1000},
-                                                                { profile: 'ขวดพลาสติก', amount: 30},
-                                                                { profile: 'หลอดพลาสติก', amount: 550},
-                                                                { profile: 'แก้วน้ำพลาสติก (ขายได้)', amount: 320},
-                                                                { profile: 'แก้วน้ำพลาสติก (ขายไม่ได้)', amount: 200},
-                                                                { profile: 'ช้อน - ส้อมพลาสติก', amount: 800},
-                                                                { profile: 'ถุงพลาสติก', amount: 1200},
-                                                                { profile: 'ถุงวิบวับ', amount: 200},
-                                                                { profile: 'กล่องอาหารพลาสติก', amount: 40},
-                                                                { profile: 'เศษอาหาร', amount: 2000},
-                                                                { profile: 'ขยะอันตราย', amount: 10},
-                                                                { profile: 'ขยะห้องน้ำ', amount: 780},
-                                                                { profile: 'ขยะกำพร้า', amount: 800},
-                                                                { profile: 'ขยะทั่วไป', amount: 1100},
-                                                              ])     
+                                                                { profile: 'กระดาษ', amount: 0},
+                                                                { profile: 'กล่องนม', amount: 0},
+                                                                { profile: 'ขวดพลาสติก', amount: 0},
+                                                                { profile: 'หลอดพลาสติก', amount: 0},
+                                                                { profile: 'แก้วน้ำพลาสติก (ขายได้)', amount: 0},
+                                                                { profile: 'แก้วน้ำพลาสติก (ขายไม่ได้)', amount: 0},
+                                                                { profile: 'ช้อน - ส้อมพลาสติก', amount: 0},
+                                                                { profile: 'ถุงพลาสติก', amount: 0},
+                                                                { profile: 'ถุงวิบวับ', amount: 0},
+                                                                { profile: 'กล่องอาหารพลาสติก', amount: 0},
+                                                                { profile: 'เศษอาหาร', amount: 0},
+                                                                { profile: 'ขยะอันตราย', amount: 0},
+                                                                { profile: 'ขยะห้องน้ำ', amount: 0},
+                                                                { profile: 'ขยะกำพร้า', amount: 0},
+                                                                { profile: 'ขยะทั่วไป', amount: 0},
+                                                              ])    
+
+  useEffect(() => {
+    if (constantProfileWaste !== null && constantFaculty !== null && initialFlag === 2 && requestData === null) {
+      const initialProfile = constantProfileWaste.map(obj => obj.key);
+      const initialFaculty = constantFaculty.map(obj => obj.key);
+      setProfileDropdown(initialProfile)
+      setFacultyDropdown(initialFaculty)
+
+      const minDateArray = oldDayRecord.split('-').map(Number);
+      setDate({
+        ...date,
+        startDate: new Date(minDateArray[0], minDateArray[1]-1, minDateArray[2], 0, 0, 0),
+        endDate: new Date()
+      });
+  
+      setRequestData({
+        profile_waste: initialProfile,
+        faculty: initialFaculty,
+        start_date: oldDayRecord,
+        end_date: `${format(new Date(), 'yyyy-MM-dd')}`
+      });
+
+      setInitialFlag(3)
+    }
+  }, [initialFlag]); 
+  
+  useEffect(() => {
+    const fetchDataProfile = async () => {
+      try {
+        const response = await axios.post('https://books-opening.gl.at.ply.gg:61345/api/v1/weightScale/record/summary', requestData);
+        setDataProfileAmount(response.data); 
+        console.log('Request get data: ', requestData)
+        console.log('Get request data successful: ', response.data)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchDataProfile();
+    // Set up an interval to periodically check for changes in the data
+    const intervalMachine = setInterval(fetchDataProfile, 30000); 
+
+    // Clean up the interval to prevent memory leaks
+    return () => {
+      clearInterval(intervalMachine);
+    }
+  }, [requestData]); 
+
+  useEffect(() => {
+    if (dataProfileAmount !== null){
+    
+      // Check if the contents of the arrays are equal
+      const arraysEqual = JSON.stringify(constantDataProfileAmount) === JSON.stringify(dataProfileAmount);
+
+      if (!arraysEqual){
+        setConstantDataProfileAmount(dataProfileAmount);
+      }
+    }
+  }, [dataProfileAmount]);  
+
+  useEffect(() => {
+    if (constantDataProfileAmount !== null){
+    
+      // Check if the contents of the arrays are equal
+      const arraysEqual = JSON.stringify(constantDataProfileAmount) === JSON.stringify(dataProfileAmount);
+
+      setTotalWaste(constantDataProfileAmount.total_waste_detail);
+      setTotalCarbon(constantDataProfileAmount.total_carbon_detail);
+      setTotalWasteDetail(constantDataProfileAmount.amount_waste_detail);
+      setTotalCarbonDetail(constantDataProfileAmount.amount_carbon_detail);
+    }
+  }, [constantDataProfileAmount]);  
 
   return (
     <div className={classes.container}>
