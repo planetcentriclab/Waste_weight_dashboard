@@ -207,14 +207,14 @@ function HomePage() {
       setMinDate(new Date(minDateArray[0], minDateArray[1]-1, minDateArray[2], 0, 0, 0));
       setStartDatePayload(oldDayRecord)
 
-    const initialStartDate = minDate; 
-    const initialEndDate = new Date();  
+      const initialStartDate = minDate; 
+      const initialEndDate = new Date();  
 
-    setDate({
-      ...date,
-      startDate: initialStartDate,
-      endDate: initialEndDate
-    });
+      setDate({
+        ...date,
+        startDate: initialStartDate,
+        endDate: initialEndDate
+      });
     }
   }, [oldDayRecord]);
 
@@ -345,11 +345,11 @@ function HomePage() {
         {constantProfileWaste !== null ? (
           <Multiselect
             className={classes.dropdown}
-          displayValue="key"
-          hideSelectedList
-          onKeyPressFn={function noRefCheck(){}}
-          onRemove={(e) => handleRemoveDropdown(e, 'profile_type')}
-          onSelect={(e) => handleSelectDropdown(e, 'profile_type')}
+            displayValue="key"
+            hideSelectedList
+            onKeyPressFn={function noRefCheck(){}}
+            onRemove={(e) => handleRemoveDropdown(e, 'profile_type')}
+            onSelect={(e) => handleSelectDropdown(e, 'profile_type')}
             options={constantProfileWaste}
             selectedValues={constantProfileWaste}
             placeholder="เลือกประเภทของขยะ"
@@ -364,12 +364,12 @@ function HomePage() {
             displayValue="key"
             hideSelectedList
             onKeyPressFn={function noRefCheck(){}}
-          placeholder="เลือกประเภทของขยะ"
-          style={customStyleDropdown}
-          avoidHighlightFirstOption
-          showArrow
-          showCheckbox
-        />
+            placeholder="เลือกประเภทของขยะ"
+            style={customStyleDropdown}
+            avoidHighlightFirstOption
+            showArrow
+            showCheckbox
+          /> 
         )}
 
       {constantFaculty !== null ? (
