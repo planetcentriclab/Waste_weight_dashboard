@@ -112,12 +112,28 @@ function MachinePage() {
   const handleAdd = (newMachine) => {
     console.log(newMachine)
     const setMachine = {
-        create_date: newMachine.create_date,
-        machine_name: newMachine.machine_name,
-        faculty_name: newMachine.faculty_name,
-        profile_waste: newMachine.profile.join(', ')
-      }
-    setMachineData(prevData => [setMachine, ...prevData]);
+      create_date: newMachine.create_date,
+      machine_name: newMachine.machine_name,
+      faculty: newMachine.faculty,
+      all_profile: newMachine.profile.join(', ')
+    }
+    
+    const addNewMachineData = {
+      machine_name: newMachine.machine_name,
+      faculty: newMachine.faculty,
+      all_profile: newMachine.profile
+    }
+
+    console.log('Adding new machine data: ', addNewMachineData)
+    axios.post('https://books-opening.gl.at.ply.gg:61345/api/v1/weightScale/machine/add', addNewMachineData)
+    .then(response => {
+      console.log('Add request successful:', response.data);
+    })
+    .catch(error => {
+      console.error('Error making add request:', error);
+    });
+
+    setConstantMachine(prevData => [setMachine, ...prevData]);
   };
 
   const openModalAdd = () => {
