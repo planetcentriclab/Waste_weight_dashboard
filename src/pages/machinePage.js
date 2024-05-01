@@ -213,8 +213,8 @@ function MachinePage() {
                   <tr key={idx}>
                     <td className={classes.tableTD1}>{val.create_date}</td>
                     <td className={classes.tableTD2}>{val.machine_name}</td>
-                    <td className={classes.tableTD3}>{val.faculty_name}</td>
-                    <td className={classes.tableTD4}>{val.profile_waste}</td>
+                    <td className={classes.tableTD3}>{val.faculty}</td>
+                    <td className={classes.tableTD4}>{val.all_profile}</td>
                     <td className={classes.tableTD5}>
                       <span className={classes.tableTDIcon}>
                         <FaTrashCan className={classes.deleteIconBtn} onClick={() => openModalDelete(idx)}/>
