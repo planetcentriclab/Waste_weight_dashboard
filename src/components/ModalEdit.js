@@ -5,6 +5,7 @@ import classes from './css/ModalEdit.module.css';
 function ModalEdit({ onClose, onUpdate, initialData }) {
   const [formData, setFormData] = useState({
         ...initialData,
+        machine_name_new: initialData.machine_name,
         profile: ''
       });
   console.log(formData)
@@ -13,27 +14,33 @@ function ModalEdit({ onClose, onUpdate, initialData }) {
   const handleChange = (selectedList, name) => {
     let extractedKeys = [];
     if (name === "profile") {
-        extractedKeys = selectedList.map(item => item.key);
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: extractedKeys
+      extractedKeys = selectedList.map(item => item.key);
+      setFormData(prevState => ({
+          ...prevState,
+          [name]: extractedKeys
+      }));
+    }
+    else if (name === "machine_name") {
+      setFormData(prevState => ({
+        ...prevState,
+        machine_name_new : selectedList
         }));
     }
     else {
-        setFormData(prevState => ({
-        ...prevState,
-        [name]: selectedList
-        }));
+      setFormData(prevState => ({
+      ...prevState,
+      [name]: selectedList
+      }));
     }
     setIsFormValid(true);
   };
 
   const handleSubmit = () => {
     if (formData.profile === '') {
-        formData.profile = formData.profile_waste.split(',').map(item => item.trim());
+        formData.profile = formData.all_profile.split(',').map(item => item.trim());
     }
     // Validate data and add new machine
-    if (formData.create_date && formData.machine_name && formData.faculty_name && formData.profile.length) {
+    if (formData.create_date && formData.machine_name && formData.machine_name_new && formData.faculty && formData.profile.length) {
       onUpdate(formData);
       onClose();
     } else {
@@ -90,7 +97,7 @@ function ModalEdit({ onClose, onUpdate, initialData }) {
     return result;
   };
 
-  const profileSelect = stringToArray(initialData.profile_waste);
+  const profileSelect = stringToArray(initialData.all_profile);
 
   return (
     <div className={classes.container}>
@@ -104,19 +111,19 @@ function ModalEdit({ onClose, onUpdate, initialData }) {
                         type="text" 
                         id="machine_name" 
                         name="machine_name" 
-                        value={formData.machine_name}
+                        value={formData.machine_name_new}
                         onChange={(e) => handleChange(e.target.value, "machine_name")}
                     />
                 </div>
 
                 <div className={classes.formGroup}>
-                    <label htmlFor="faculty_name">ชื่อคณะที่ทำการติดตั้ง</label>
+                    <label htmlFor="faculty">ชื่อคณะที่ทำการติดตั้ง</label>
                     <input 
                         type="text" 
-                        id="faculty_name" 
-                        name="faculty_name" 
-                        value={formData.faculty_name}
-                        onChange={(e) => handleChange(e.target.value, "faculty_name")}
+                        id="faculty" 
+                        name="faculty" 
+                        value={formData.faculty}
+                        onChange={(e) => handleChange(e.target.value, "faculty")}
                     />
                 </div>
 
