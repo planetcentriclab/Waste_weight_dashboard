@@ -18,31 +18,84 @@ ChartJS.defaults.font.family = 'Prompt';
 
 function HomePage() {
 
-  // ----------------------------------- DropDown constant -----------------------------------
-  const [profile, setProfile] = useState([
-                                          { cat: 'Group 1', key: 'กระป๋อง'},
-                                          { cat: 'Group 2', key: 'แก้ว'},
-                                          { cat: 'Group 3', key: 'กระดาษ'},
-                                          { cat: 'Group 4', key: 'กล่องนม'},
-                                          { cat: 'Group 5', key: 'ขวดพลาสติก'},
-                                          { cat: 'Group 6', key: 'หลอดพลาสติก'},
-                                          { cat: 'Group 7', key: 'แก้วน้ำพลาสติก (ขายได้)'},
-                                          { cat: 'Group 8', key: 'แก้วน้ำพลาสติก (ขายไม่ได้)'},
-                                          { cat: 'Group 9', key: 'ช้อน - ส้อมพลาสติก'},
-                                          { cat: 'Group 10', key: 'ถุงพลาสติก'},
-                                          { cat: 'Group 11', key: 'ถุงวิบวับ'},
-                                          { cat: 'Group 12', key: 'กล่องอาหารพลาสติก'},
-                                          { cat: 'Group 13', key: 'เศษอาหาร'},
-                                          { cat: 'Group 14', key: 'ขยะอันตราย'},
-                                          { cat: 'Group 15', key: 'ขยะห้องน้ำ'},
-                                          { cat: 'Group 16', key: 'ขยะกำพร้า'},
-                                          { cat: 'Group 17', key: 'ขยะทั่วไป'},
-                                        ])     
+  // ----------------------------------- ProfileWaste and faculty constant -----------------------------------
+  const [profileWaste, setProfileWaste] = useState(null);
+  const [constantProfileWaste, setConstantProfileWaste] = useState(null);
 
-  const [faculty, setFaculty] = useState([
-                                          { cat: 'Group 1', key: 'สถาบันวิทยาการหุ่นยนต์ภาคสนาม'},
-                                          { cat: 'Group 2', key: 'คณะวิศวกรรมศาสตร์'},
-                                        ])                             
+  const [faculty, setFaculty] = useState(null);      
+  const [constantFaculty, setConstantFaculty] = useState(null);  
+
+  const [initialFlag, setInitialFlag] = useState(null); 
+  const [requestData, setRequestData] = useState(null) 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://books-opening.gl.at.ply.gg:61345/api/v1/weightScale/profile_of_waste/thai');
+        setProfileWaste(response.data); 
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+
+      try {
+        const response = await axios.get('https://books-opening.gl.at.ply.gg:61345/api/v1/weightScale/machine/faculty');
+        setFaculty(response.data); 
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+    // Set up an interval to periodically check for changes in the data
+    const interval = setInterval(fetchData, 60000); 
+
+    // Clean up the interval to prevent memory leaks
+    return () => {
+      clearInterval(interval);
+    }
+  }, []); 
+
+  useEffect(() => {
+    if (profileWaste !== null){
+      const transformedArray = profileWaste.map((item, index) => {
+        const cat = (index + 1).toString();
+        const key = item.waste_profile_thai;
+        return { cat, key };
+      });
+      
+      // Check if the contents of the arrays are equal
+      const arraysEqual = JSON.stringify(constantProfileWaste) === JSON.stringify(transformedArray);
+
+      if (!arraysEqual){
+        setConstantProfileWaste(transformedArray);
+      }
+
+      if (requestData === null) {
+        setInitialFlag(1)
+      }
+    }
+  }, [profileWaste]);  
+
+  useEffect(() => {
+    if (faculty !== null){
+      const transformedArray = faculty.map((item, index) => {
+        const cat = (index + 1).toString();
+        const key = item.faculty;
+        return { cat, key };
+      });
+      
+      // Check if the contents of the arrays are equal
+      const arraysEqual = JSON.stringify(constantFaculty) === JSON.stringify(transformedArray);
+
+      if (!arraysEqual){
+        setConstantFaculty(transformedArray);
+      }
+
+      if (requestData === null) {
+        setInitialFlag(2)
+      }
+    }
+  }, [faculty]);  
 
   const handleRemoveDropdown = (e, type_multiselect) => {
     console.log(e);
