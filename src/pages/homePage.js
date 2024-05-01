@@ -8,6 +8,7 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2' 
 import calendarIcon from './img/calendar.png';
 import { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
 ChartJS.defaults.maintainAspectRatio = false;
 ChartJS.defaults.responsive = true;
@@ -97,6 +98,21 @@ function HomePage() {
     }
   }, [faculty]);  
 
+  // ----------------------------- Get old create date record ------------------------------
+  const [oldDayRecord, setOldDayRecord] = useState(null)
+  useEffect(() => { 
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://books-opening.gl.at.ply.gg:61345/api/v1/weightScale/record/oldDayRecord');
+        const date = response.data[0].create_date
+        setOldDayRecord(date.substring(0, 10)); 
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, [])
+  
   const handleRemoveDropdown = (e, type_multiselect) => {
     console.log(e);
   }
