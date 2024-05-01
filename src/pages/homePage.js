@@ -342,41 +342,69 @@ function HomePage() {
       <p className={classes.title}>รายละเอียดข้อมูลขยะ</p>
 
       <div className={classes.containerDropdown}>
-        <Multiselect className={classes.dropdown}
+        {constantProfileWaste !== null ? (
+          <Multiselect
+            className={classes.dropdown}
           displayValue="key"
           hideSelectedList
           onKeyPressFn={function noRefCheck(){}}
           onRemove={(e) => handleRemoveDropdown(e, 'profile_type')}
           onSelect={(e) => handleSelectDropdown(e, 'profile_type')}
-          options={profile}
-          selectedValues={profile}
+            options={constantProfileWaste}
+            selectedValues={constantProfileWaste}
+            placeholder="เลือกประเภทของขยะ"
+            style={customStyleDropdown}
+            avoidHighlightFirstOption
+            showArrow
+            showCheckbox
+          />
+        ) : (
+          <Multiselect
+            className={classes.dropdown}
+            displayValue="key"
+            hideSelectedList
+            onKeyPressFn={function noRefCheck(){}}
           placeholder="เลือกประเภทของขยะ"
           style={customStyleDropdown}
           avoidHighlightFirstOption
           showArrow
           showCheckbox
         />
+        )}
+
+      {constantFaculty !== null ? (
         <Multiselect className={classes.dropdown}
           displayValue="key"
           hideSelectedList
           onKeyPressFn={function noRefCheck(){}}
           onRemove={(e) => handleRemoveDropdown(e, 'faculty_type')}
           onSelect={(e) => handleSelectDropdown(e, 'faculty_type')}
-          options={faculty}
-          selectedValues={faculty}
+          options={constantFaculty}
+          selectedValues={constantFaculty}
           placeholder="เลือกสถานที่ตั้งของเครื่อง"
           style={customStyleDropdown}
           avoidHighlightFirstOption
           showArrow
           showCheckbox
         />
+      ) : (
+        <Multiselect className={classes.dropdown}
+          displayValue="key"
+          hideSelectedList
+          onKeyPressFn={function noRefCheck(){}}
+          placeholder="เลือกสถานที่ตั้งของเครื่อง"
+          style={customStyleDropdown}
+          avoidHighlightFirstOption
+          showArrow
+          showCheckbox
+        />
+      )}
       
         <div className={classes.containerDateRange} ref={dateRangeRef}>
           <img className={classes.calendarIcon} onClick={handleClickDateRange} src={calendarIcon} alt='icon' width='22px' height='22px'/>
           <span className={classes.calendarSpan} onClick={handleClickDateRange}>
             {`${format(date.startDate, 'dd/MM/yyyy')}`} - {`${format(date.endDate, 'dd/MM/yyyy')}`}
           </span>
-
           {openDate && <DateRange className={classes.dateRange} 
             ranges={[date]}
             onChange={handleChangeDateRange}
