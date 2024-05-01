@@ -124,12 +124,44 @@ function HomePage() {
 
   const [startDatePayload, setStartDatePayload] = useState(minDate)
   const [endDatePayload, setEndDatePayload] = useState(`${format(new Date(), 'yyyy-MM-dd')}`)
+
+  // ----------------------------------- Dropdown handle -----------------------------------
   const handleRemoveDropdown = (e, type_multiselect) => {
-    console.log(e);
+    if (type_multiselect === 'profile_type') {
+      setRequestData({
+        profile_waste: e.map(obj => obj.key),
+        faculty: facultyDropdown,
+        start_date: startDatePayload,
+        end_date: endDatePayload
+      });
+    }
+    else {
+      setRequestData({
+        profile_waste: profileDropdown,
+        faculty: e.map(obj => obj.key),
+        start_date: startDatePayload,
+        end_date: endDatePayload
+      });
+    }
   }
 
   const handleSelectDropdown = (e, type_multiselect) => {
-    console.log(e);
+    if (type_multiselect === 'profile_type') {
+      setRequestData({
+        profile_waste: e.map(obj => obj.key),
+        faculty: facultyDropdown,
+        start_date: startDatePayload,
+        end_date: endDatePayload
+      });
+    }
+    else {
+      setRequestData({
+        profile_waste: profileDropdown,
+        faculty: e.map(obj => obj.key),
+        start_date: startDatePayload,
+        end_date: endDatePayload
+      });
+    }
   }
 
   const customStyleDropdown = {
@@ -139,10 +171,6 @@ function HomePage() {
     }
   }
 
-  // ----------------------------------- DateRange constant -----------------------------------
-  const [date, setDate] = useState({ startDate: new Date(), endDate: new Date(), key: 'selection'})
-  const [openDate, setOpenDate] = useState(false)
-  const minDate = new Date(2024, 1, 1, 0, 0, 0); 
 
   const handleClickDateRange = () => {setOpenDate((prev) => !prev)};
   const handleChangeDateRange = (ranges) => {
