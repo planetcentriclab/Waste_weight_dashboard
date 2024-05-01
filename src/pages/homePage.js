@@ -440,6 +440,21 @@ function HomePage() {
                   borderRadius: 5,
                 }],
               }}
+              options={{
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'ปริมาณ (กิโลกรัม)',
+                      font: {
+                        size: 11,
+                        family: 'Prompt'
+                      }
+                    }
+                  }
+                }
+              }}
               plugins={[{
                 id: 'datalabels',
                 afterDraw(chart) {
@@ -484,6 +499,21 @@ function HomePage() {
                   backgroundColor: "rgb(166, 157, 78)",
                   borderRadius: 5,
                 }],
+              }}
+              options={{
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'ปริมาณ (kgCO2e)',
+                      font: {
+                        size: 11,
+                        family: 'Prompt'
+                      }
+                    }
+                  }
+                }
               }}
               plugins={[{
                 id: 'datalabels',
