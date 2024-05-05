@@ -494,7 +494,7 @@ function HomePage() {
               data={{
                 labels: totalCarbonDetail.map(detail => detail.profile),
                 datasets: [{
-                  label: "ปริมาณ (กิโลกรัม)",
+                  label: "ปริมาณ (kgCO2e)",
                   data: totalCarbonDetail.map(detail => detail.amount),
                   backgroundColor: "rgb(166, 157, 78)",
                   borderRadius: 5,
