@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Waste_weight_dashboard/static/css/main.9fd9d813.css",
-    "main.js": "/Waste_weight_dashboard/static/js/main.0cf76e0d.js",
+    "main.js": "/Waste_weight_dashboard/static/js/main.33825ae2.js",
     "static/media/machine.png": "/Waste_weight_dashboard/static/media/machine.54341362e5507ee8da3b.png",
     "static/media/calendar.png": "/Waste_weight_dashboard/static/media/calendar.21b01bee77db7e9a8e72.png",
     "index.html": "/Waste_weight_dashboard/index.html",
     "main.9fd9d813.css.map": "/Waste_weight_dashboard/static/css/main.9fd9d813.css.map",
-    "main.0cf76e0d.js.map": "/Waste_weight_dashboard/static/js/main.0cf76e0d.js.map"
+    "main.33825ae2.js.map": "/Waste_weight_dashboard/static/js/main.33825ae2.js.map"
   },
   "entrypoints": [
     "static/css/main.9fd9d813.css",
-    "static/js/main.0cf76e0d.js"
+    "static/js/main.33825ae2.js"
   ]
 }
