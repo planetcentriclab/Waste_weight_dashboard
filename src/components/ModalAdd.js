@@ -5,7 +5,7 @@ import classes from './css/ModalAdd.module.css';
 function ModalAdd({ onClose, onAdd }) {
   const getCurrentDate = () => {
     const currentDate = new Date();
-    const year = currentDate.getFullYear();
+    const year = currentDate.getFullYear() + 543;
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');  // Months are 0-indexed
     const day = String(currentDate.getDate()).padStart(2, '0');
     
