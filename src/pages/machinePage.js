@@ -149,14 +149,9 @@ function MachinePage() {
   const [editIndex, setEditIndex] = useState(null);
 
   const handleUpdate = (updatedData) => {
-    var dateParts = updatedData.create_date.split('/');
-    var day = dateParts[0];
-    var month = dateParts[1];
-    var year = parseInt(dateParts[2]) + 543;
-    var formattedDate = day + '/' + month + '/' + year;
 
     const newUpdatedData = {
-      create_date: formattedDate,
+      create_date: updatedData.create_date,
       machine_name: updatedData.machine_name_new,
       faculty: updatedData.faculty,
       all_profile: updatedData.profile.join(', ')
@@ -192,6 +187,7 @@ function MachinePage() {
    const closeModalEdit = () => {
      setIsModalEditOpen(false);
    };
+
 
   return (
     <div className={classes.container}>
