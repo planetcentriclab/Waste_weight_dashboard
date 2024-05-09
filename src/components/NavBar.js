@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import classes from './css/NavBar.module.css'
 import data from './img/data.png'
 import machine from './img/machine.png'
+import factor from './img/factor.png'
 
 const NavBar = ({children}) => {
   const menuItem = [
@@ -15,6 +16,11 @@ const NavBar = ({children}) => {
         path:"/machine-page",
         name:"เครื่องชั่งน้ำหนักขยะ",
         icon: machine
+    },
+    {
+        path:"/emission-factor-page",
+        name:"Emission Factor",
+        icon: factor
     }
     ]
 
