@@ -41,7 +41,6 @@ function FactorPage() {
     };
 
     const handleKeyPress = (event) => {
-        // Prevent the default action if the typed key is alphabetic
         if (/[a-zA-Z]/.test(event.key)) {
           event.preventDefault();
         }
