@@ -32,11 +32,18 @@ function FactorPage() {
 
     const handleInputChange = (index, event) => {
         const newValue = event.target.value;
-        if (!isNaN(newValue) || newValue === '') {
+        if (/^\d*\.?\d+$/.test(newValue) && parseFloat(newValue) > 0) {
             const newChangeFactors = [...changeFactors];
             newChangeFactors[index] = { ...newChangeFactors[index], carbon_factor: newValue };
             setChangeFactors(newChangeFactors);
             setPlaceholders(newChangeFactors.map(factor => factor.carbon_factor));
+        }
+    };
+
+    const handleKeyPress = (event) => {
+        // Prevent the default action if the typed key is alphabetic
+        if (/[a-zA-Z]/.test(event.key)) {
+          event.preventDefault();
         }
     };
 
@@ -114,7 +121,9 @@ function FactorPage() {
                                             className={classes.input}
                                             id={`carbon-factor-${index}`}
                                             type="text"
+                                            pattern="[0-9.]*"
                                             placeholder={initialPlaceholders && initialPlaceholders[index]}
+                                            onKeyPress={handleKeyPress}
                                             onChange={(e) => handleInputChange(index, e)}
                                         />
                                     </div>
