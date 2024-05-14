@@ -9,6 +9,7 @@ import { Bar } from 'react-chartjs-2'
 import calendarIcon from './img/calendar.png';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import ExportToCSV from '../components/GenerateCSV'
 
 ChartJS.defaults.maintainAspectRatio = false;
 ChartJS.defaults.responsive = true;
@@ -326,16 +327,20 @@ function HomePage() {
 
   useEffect(() => {
     if (constantDataProfileAmount !== null){
-    
-      // Check if the contents of the arrays are equal
-      const arraysEqual = JSON.stringify(constantDataProfileAmount) === JSON.stringify(dataProfileAmount);
-
       setTotalWaste(constantDataProfileAmount.total_waste_detail);
       setTotalCarbon(constantDataProfileAmount.total_carbon_detail);
       setTotalWasteDetail(constantDataProfileAmount.amount_waste_detail);
       setTotalCarbonDetail(constantDataProfileAmount.amount_carbon_detail);
     }
   }, [constantDataProfileAmount]);  
+
+  const handleGenerateCSV = () => {
+    const jsonA = requestData
+    const jsonB = dataProfileAmount
+    ExportToCSV(jsonA, jsonB)
+
+    console.log("Generate CSV successfully")
+  };
 
   return (
     <div className={classes.container}>
@@ -412,6 +417,8 @@ function HomePage() {
             maxDate={new Date()}
           />}
         </div>
+
+        <div className={classes.csvBtn} onClick={handleGenerateCSV}>Export CSV</div>
       </div>
 
       <div className={classes.containerTotalWaste}>
