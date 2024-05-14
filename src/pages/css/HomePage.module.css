@@ -130,3 +130,21 @@
     height: calc(((100vh - (45px + 24px + 20px + 34px + 80px + 70px))/2) - 35px);
     width: calc(100vw - 280px);
 }
+
+.csvBtn {
+    text-align: center;
+    padding: 8px 5px 6px 5px;
+    width: 100px;
+    color: #1A3D19;
+    font-size: 14px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #1A3D19;
+}
+
+.csvBtn:hover {
+    color: #ffffff;
+    background-color: #4a6449;
+    border: 1px solid #4a6449;
+}
