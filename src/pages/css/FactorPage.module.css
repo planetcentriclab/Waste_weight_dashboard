@@ -23,11 +23,12 @@
 
 .backgroundContainerTable {
     position: relative;
-    height: 850px;
+    height: calc(100vh - 45px - 24px - 25px - 40px - 10px);
     width: 600px;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 10px 10px;
+    margin-top: 10px;
     box-shadow: 2px 2px 6px #0e270d31;
     align-items: center;
     justify-content: center;    
@@ -48,6 +49,9 @@
 }
 
 .factorContainer {
+    min-height: calc(100vh - 45px - 24px - 25px - 40px - 10px - 20px - 70px);
+    max-height: calc(100vh - 45px - 24px - 25px - 40px - 10px - 20px - 70px); 
+    overflow-y: scroll;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -88,6 +92,7 @@ label {
     grid-column: 2;  
     display: flex;
     padding: 10px 100px 0px 0px;
+    margin: 0px 0px 0px 10px;
     gap: 10px;  
     justify-content: flex-end; 
 }
