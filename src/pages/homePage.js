@@ -290,7 +290,7 @@ function HomePage() {
       setInitialFlag(3)
     }
   }, [initialFlag]); 
-  
+
   useEffect(() => {
     const fetchDataProfile = async () => {
       try {
@@ -300,7 +300,7 @@ function HomePage() {
         console.log('Get request data successful: ', response.data)
       } catch (error) {
         console.error('Error fetching data:', error);
-      }
+      }  
     };
 
     fetchDataProfile();
@@ -334,13 +334,37 @@ function HomePage() {
     }
   }, [constantDataProfileAmount]);  
 
-  const handleGenerateCSV = () => {
-    const jsonA = requestData
-    const jsonB = dataProfileAmount
-    ExportToCSV(jsonA, jsonB)
+  // ----------------------------------- Generate CSV -----------------------------------
+  const [csvData, setCsvData] = useState(null)
 
-    console.log("Generate CSV successfully")
+  const handleGenerateCSV = () => {
+    const requestDataCSV = {
+      faculty: requestData.faculty,
+      start_date: requestData.start_date,
+      end_date: requestData.end_date
+    }
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('https://books-opening.gl.at.ply.gg:61345/api/v1/weightScale/record/generateCSV', requestDataCSV);
+        setCsvData(response.data);
+        console.log('Request data: ', requestDataCSV)
+        console.log('Response get csv data: ', response.data)        
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
   };
+
+  useEffect(() => {
+    if (requestData != null && csvData != null){
+      const jsonA = requestData
+      const jsonB = csvData
+      ExportToCSV(jsonA, jsonB, profileWaste)
+    }
+  }, [csvData]);  
 
   return (
     <div className={classes.container}>
